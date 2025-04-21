@@ -13,6 +13,7 @@
 #             - either compiled or installed - nor admin privileges to run.
 
 YABS_VERSION="v2025-04-20"
+YABS_GIT_URL="https://raw.githubusercontent.com/BPplays/yet-another-bench-script/master"
 
 echo -e '# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #'
 echo -e '#              Yet-Another-Bench-Script              #'
@@ -594,9 +595,9 @@ elif [ -z "$SKIP_FIO" ]; then
 	else
 		# download fio binary
 		if [[ -n $LOCAL_CURL ]]; then
-			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/fio/fio_$ARCH -o "$DISK_PATH/fio"
+			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 $YABS_GIT_URL/bin/fio/fio_$ARCH -o "$DISK_PATH/fio"
 		else
-			wget -q -T 5 -t 5 -w 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/fio/fio_$ARCH -O "$DISK_PATH/fio"
+			wget -q -T 5 -t 5 -w 0 $YABS_GIT_URL/bin/fio/fio_$ARCH -O "$DISK_PATH/fio"
 		fi
 
 		if [ ! -f "$DISK_PATH/fio" ]; then # ensure fio binary download successfully
@@ -812,9 +813,9 @@ if [ -z "$SKIP_IPERF" ]; then
 
 		# download iperf3 binary
 		if [[ -n $LOCAL_CURL ]]; then
-			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/iperf/iperf3_$ARCH -o "$IPERF_PATH/iperf3"
+			curl -s --connect-timeout 5 --retry 5 --retry-delay 0 $YABS_GIT_URL/bin/iperf/iperf3_$ARCH -o "$IPERF_PATH/iperf3"
 		else
-			wget -q -T 5 -t 5 -w 0 https://raw.githubusercontent.com/masonr/yet-another-bench-script/master/bin/iperf/iperf3_$ARCH -O "$IPERF_PATH/iperf3"
+			wget -q -T 5 -t 5 -w 0 $YABS_GIT_URL/bin/iperf/iperf3_$ARCH -O "$IPERF_PATH/iperf3"
 		fi
 
 		if [ ! -f "$IPERF_PATH/iperf3" ]; then # ensure iperf3 binary downloaded successfully
