@@ -63,7 +63,7 @@ unset PREFER_BIN SKIP_FIO SKIP_IPERF SKIP_V6 SKIP_V4 SKIP_GEEKBENCH SKIP_NET PRI
 GEEKBENCH_6="True" # gb6 test enabled by default
 
 # get any arguments that were passed to the script and set the associated skip flags (if applicable)
-while getopts 'bfdignhr4596jw:s:' flag; do
+while getopts 'bfosdignhr4596jw:s:' flag; do
 	case "${flag}" in
 		b) PREFER_BIN="True" ;;
 		f) SKIP_FIO="True" ;;
