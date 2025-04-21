@@ -57,7 +57,7 @@ elif [[ $ARCH = *aarch* || $ARCH = *arm* ]]; then
 	echo -e "\nARM compatibility is considered *experimental*"
 else
 	# host is running a non-supported kernel
-	echo -e "Architecture not supported by YABS."
+	echo -e "Architecture not supported by YABS. $(uname -m)"
 	exit 1
 fi
 
