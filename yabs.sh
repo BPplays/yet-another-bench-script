@@ -85,8 +85,8 @@ while getopts 'bfdignhr4596jw:s:' flag; do
 done
 SKIP_FIO="True"
 SKIP_GEEKBENCH="True"
-SKIP_V4="TRUE"
-SKIP_V6="TRUE"
+SKIP_V4="True"
+unset SKIP_V6
 
 # check for local fio/iperf installs
 if command -v fio >/dev/null 2>&1; then
