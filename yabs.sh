@@ -707,7 +707,7 @@ function iperf_test {
 		# run the iperf test sending data from the host to the iperf server; includes
 		#   a timeout of 15s in case the iperf server is not responding; uses 8 parallel
 		#   threads for the network test
-		IPERF_RUN_SEND="$(timeout 15 "$IPERF_CMD" "$FLAGS" -c "$URL" -p "$PORT" -P 32 2> /dev/null)"
+		IPERF_RUN_SEND="$(timeout 15 "$IPERF_CMD" "$FLAGS" -c "$URL" -p "$PORT" -P 16 2> /dev/null)"
 		# check if iperf exited cleanly and did not return an error
 		if [[ "$IPERF_RUN_SEND" == *"receiver"* && "$IPERF_RUN_SEND" != *"error"* ]]; then
 			# test did not result in an error, parse speed result
