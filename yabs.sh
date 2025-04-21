@@ -43,6 +43,8 @@ if [[ $ARCH = *x86_64* ]]; then
 elif [[ $ARCH = *i?86* ]]; then
 	# host is running a 32-bit kernel
 	ARCH="x86"
+elif [[ $ARCH = *amd64* ]]; then
+	ARCH="x64"
 elif [[ $ARCH = *aarch* || $ARCH = *arm* ]]; then
 	KERNEL_BIT=$(getconf LONG_BIT)
 	if [[ $KERNEL_BIT = *64* ]]; then
