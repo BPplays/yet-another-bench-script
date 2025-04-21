@@ -59,7 +59,7 @@ else
 fi
 
 # flags to skip certain performance tests
-unset PREFER_BIN SKIP_FIO SKIP_IPERF SKIP_GEEKBENCH SKIP_NET PRINT_HELP REDUCE_NET GEEKBENCH_4 GEEKBENCH_5 GEEKBENCH_6 DD_FALLBACK IPERF_DL_FAIL JSON JSON_SEND JSON_RESULT JSON_FILE
+unset PREFER_BIN SKIP_FIO SKIP_IPERF SKIP_V6 SKIP_V4 SKIP_GEEKBENCH SKIP_NET PRINT_HELP REDUCE_NET GEEKBENCH_4 GEEKBENCH_5 GEEKBENCH_6 DD_FALLBACK IPERF_DL_FAIL JSON JSON_SEND JSON_RESULT JSON_FILE
 GEEKBENCH_6="True" # gb6 test enabled by default
 
 # get any arguments that were passed to the script and set the associated skip flags (if applicable)
@@ -69,6 +69,8 @@ while getopts 'bfdignhr4596jw:s:' flag; do
 		f) SKIP_FIO="True" ;;
 		d) SKIP_FIO="True" ;;
 		i) SKIP_IPERF="True" ;;
+		s) SKIP_V6="True" ;;
+		f) SKIP_V4="True" ;;
 		g) SKIP_GEEKBENCH="True" && unset GEEKBENCH_6 ;;
 		n) SKIP_NET="True" ;;
 		h) PRINT_HELP="True" ;;
@@ -83,10 +85,6 @@ while getopts 'bfdignhr4596jw:s:' flag; do
 		*) exit 1 ;;
 	esac
 done
-SKIP_FIO="True"
-SKIP_GEEKBENCH="True"
-SKIP_V4="True"
-unset SKIP_V6
 
 # check for local fio/iperf installs
 if command -v fio >/dev/null 2>&1; then
