@@ -70,7 +70,7 @@ while getopts 'bfdignhr4596jw:s:' flag; do
 		d) SKIP_FIO="True" ;;
 		i) SKIP_IPERF="True" ;;
 		s) SKIP_V6="True" ;;
-		f) SKIP_V4="True" ;;
+		o) SKIP_V4="True" ;;
 		g) SKIP_GEEKBENCH="True" && unset GEEKBENCH_6 ;;
 		n) SKIP_NET="True" ;;
 		h) PRINT_HELP="True" ;;
